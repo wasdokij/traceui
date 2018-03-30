@@ -1,0 +1,111 @@
+/* --------------------------------------------------------------------------
+   Text Module
+       Style Guide：https://github.com/wasdokij/css
+   -------------------------------------------------------------------------- */
+
+/* Text Module border
+   -------------------------------------------------------------------------- */
+@mixin border($position) {
+  content: '';
+  display: block;
+  width: 100%;
+  position: absolute;
+  @if $position == null {
+    left: 0;
+    top: 0;
+    height: 100%;
+    border: 1px solid #e9e9e9;
+    -webkit-transform-origin: 0 0;
+    padding: 1px;
+    -webkit-box-sizing: border-box;
+    pointer-events: none;
+    z-index: 10;
+  }@else if $position == left {
+    top: 0;
+    bottom: 0;
+    #{$position}: 0;
+    border-#{$position}: 1px solid #e9e9e9;
+    -webkit-transform-origin: $position top;
+  } @else if $position == right {
+    top: 0;
+    bottom: 0;
+    #{$position}: 0;
+    border-#{$position}: 1px solid #e9e9e9;
+    -webkit-transform-origin: $position top;
+  } @else {
+    left: 0;
+    #{$position}: 0;
+    border-#{$position}: 1px solid #e9e9e9;
+    -webkit-transform-origin: left $position;
+  }
+}
+
+.sp-border{
+  &:before{
+    @include border(null)
+  }
+  &-t:before {
+    @include border(top);
+  }
+  &-b:before {
+    @include border(bottom);
+  }
+  &-tb {
+    &:before{
+      @include border(top);
+    }
+    &:after{
+      @include border(bottom);
+    }
+  }
+  &-l:before {
+    @include border(left);
+  }
+  &-r:before {
+    @include border(right);
+  }
+}
+
+/* Text Module color
+   -------------------------------------------------------------------------- */
+@mixin color($position: #000) {
+  color: $position
+}
+.sp-color {
+  &-white{
+    @include color(white)
+  }
+  &-theme {
+    @include color(#09C407)
+  }
+  &-default {
+    @include color(#000)
+  }
+}
+
+/* Text Module nowrap
+   -------------------------------------------------------------------------- */
+.sp-nowrap {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  &-flex {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    -webkit-box-flex: 1;
+    height: inherit;
+  }
+  &-multi {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2
+  }
+}
+

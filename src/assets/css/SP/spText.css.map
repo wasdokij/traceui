@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,wBAAE;EACA,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,OAAO;EACd,WAAW,EAAE,KAAK;AAEpB,2BAAO;EACL,OAAO,EAAE,QAAQ;EACjB,gBAAgB,EAAE,OAAO;EACzB,aAAa,EAAE,GAAG;EAClB,WAAW,EAAE,iBAAiB;EAC9B,MAAM,EAAE,MAAM",
+"sources": ["spText.scss"],
+"names": [],
+"file": "spText.css"
+}

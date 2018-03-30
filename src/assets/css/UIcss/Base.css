@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* --------------------------------------------------------------------------
+   Base Module
+       Style Guide：https://github.com/wasdokij/css
+   -------------------------------------------------------------------------- */
+.sp-whitespace {
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+  @media (max-width: 320px) {
+    .sp-whitespace {
+      padding-left: 10px;
+      padding-right: 10px; } }
+
+/*# sourceMappingURL=Base.css.map */

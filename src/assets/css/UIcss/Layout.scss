@@ -1,0 +1,110 @@
+/* --------------------------------------------------------------------------
+   Layout Module :
+     1. float
+     2. flex
+     3. Grid
+
+   Style Guide：https://github.com/wasdokij/css
+   -------------------------------------------------------------------------- */
+
+/* Layout Module Float mixin */
+@mixin row-float($width...) {
+  @for $i from 1 through length($width) {
+    .sp-col-#{nth($width, $i)}{
+       width: nth($width, $i) + 0%
+    }
+  }
+}
+
+/* Layout Module Flex mixin */
+@mixin row-flex($grow...) {
+  @for $i from 1 through length($grow) {
+    .sp-col-#{nth($grow, $i)}{
+      flex-grow: nth($grow, $i)
+    }
+  }
+}
+/* Layout Module Float、Flex 、Grids九宫格
+   -------------------------------------------------------------------------- */
+.sp-row{
+  &-float{
+    & {
+      display: block;
+      overflow: hidden;
+    }
+    & > .sp-col{
+      float: left;
+    }
+    $px: 10 20 30 50 70 80 90;
+    @include row-float($px...)
+  }
+  &-flex {
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    width: 100%;
+    & > {
+      $flex: 1 2 3 ;
+      @include row-flex ($flex...)
+    }
+  }
+}
+
+.sp-grids {
+  position: relative;
+  overflow: hidden;
+  /* grid位置 */
+  @mixin GridPosition($position...) {
+    position: absolute;
+    @each $name in $position{
+      #{$name}: 0
+    }
+  }
+  /* grid-transform */
+  @mixin GridTransform($transform) {
+    content: " ";
+    color: #D9D9D9;
+    @each $scale, $origin in $transform {
+      -webkit-transform-origin: $origin;
+      transform-origin: $origin;
+      -webkit-transform: $scale(0.5);
+      transform: $scale(0.5);
+    }
+  }
+  /* grid-Border 边框 */
+  @mixin GridBorder($border...) {
+    #{nth($border, 1)}: 1px;
+    border-#{nth($border, 2)}: 1px solid #D9D9D9;
+  }
+
+  &:before {
+    $transform: (scale: scaleX, origin: 0 0);
+    @include GridPosition (top, right, left);
+    @include GridTransform($transform);
+    @include GridBorder(height, top)
+  }
+  &:after{
+    $transform: (scale: scaleY, origin: 0 0);
+    @include GridPosition (top, bottom, left);
+    @include GridTransform($transform);
+    @include GridBorder(width, left);
+  }
+  &-grid {
+    position: relative;
+    float: left;
+    padding: 20px 10px;
+    width: 33.33333333%;
+    box-sizing: border-box;
+    &:after {
+      $transform: (scale: scaleY, origin: 0 100%);
+      @include GridPosition (right, bottom, left);
+      @include GridTransform($transform);
+      @include GridBorder(height, bottom);
+    }
+    &:before {
+      $transform: (scale: scaleY, origin: 100% 0);
+      @include GridPosition (top, right, bottom);
+      @include GridTransform($transform);
+      @include GridBorder(width, right);
+    }
+  }
+}

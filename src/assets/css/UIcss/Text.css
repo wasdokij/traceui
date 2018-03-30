@@ -1,0 +1,110 @@
+@charset "UTF-8";
+/* --------------------------------------------------------------------------
+   Text Module
+       Style Guide：https://github.com/wasdokij/css
+   -------------------------------------------------------------------------- */
+/* Text Module border
+   -------------------------------------------------------------------------- */
+.sp-border:before {
+  content: '';
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border: 1px solid #e9e9e9;
+  -webkit-transform-origin: 0 0;
+  padding: 1px;
+  -webkit-box-sizing: border-box;
+  pointer-events: none;
+  z-index: 10; }
+.sp-border-t:before {
+  content: '';
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-top: 1px solid #e9e9e9;
+  -webkit-transform-origin: left top; }
+.sp-border-b:before {
+  content: '';
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-bottom: 1px solid #e9e9e9;
+  -webkit-transform-origin: left bottom; }
+.sp-border-tb:before {
+  content: '';
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-top: 1px solid #e9e9e9;
+  -webkit-transform-origin: left top; }
+.sp-border-tb:after {
+  content: '';
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-bottom: 1px solid #e9e9e9;
+  -webkit-transform-origin: left bottom; }
+.sp-border-l:before {
+  content: '';
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid #e9e9e9;
+  -webkit-transform-origin: left top; }
+.sp-border-r:before {
+  content: '';
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border-right: 1px solid #e9e9e9;
+  -webkit-transform-origin: right top; }
+
+/* Text Module color
+   -------------------------------------------------------------------------- */
+.sp-color-white {
+  color: white; }
+.sp-color-theme {
+  color: #09C407; }
+.sp-color-default {
+  color: #000; }
+
+/* Text Module nowrap
+   -------------------------------------------------------------------------- */
+.sp-nowrap {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+  .sp-nowrap-flex {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    -webkit-box-flex: 1;
+    height: inherit; }
+  .sp-nowrap-multi {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; }
+
+/*# sourceMappingURL=Text.css.map */
